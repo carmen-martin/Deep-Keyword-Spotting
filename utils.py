@@ -46,7 +46,7 @@ def load_dataset(directory, categories, train_size=0.85, winlen=0.025, winstep=0
     return X_train, Y_train, X_test, Y_test
 
 
-def load_dataset_keywords(directory, keywords, categories, train_size=0.85, winlen=0.025, winstep=0.01, numcep=13, nfilt=26):
+def load_dataset_keywords(directory, keywords, categories, frames=99, train_size=0.85, winlen=0.025, winstep=0.01, numcep=13, nfilt=26):
     '''
     Loads the dataset from the given directory and divides it in test and training sets. 
     The label set provides a different label for each category.
@@ -63,7 +63,7 @@ def load_dataset_keywords(directory, keywords, categories, train_size=0.85, winl
     :returns: 4 numpy arrays - X_train, Y_train, X_test, Y_test
     '''
     
-    dataset = np.zeros((99,39,1))
+    dataset = np.zeros((frames, 39, 1))
     temp1 =  np.shape(dataset)[2]
     labels = []
     lab = 1
