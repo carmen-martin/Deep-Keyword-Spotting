@@ -2,7 +2,9 @@ import numpy as np
 np.random.seed(1234)
 
 from os.path import join as pjoin
-
+import numpy as np
+from python_speech_features import mfcc, delta, logfbank
+import scipy.io.wavfile as wav
 
 def load_dataset(directory, categories, train_size=0.85, winlen=0.025, winstep=0.01, numcep=13, nfilt=26):
     '''
@@ -97,3 +99,24 @@ def load_dataset_keywords(directory, keywords, categories, frames=99, train_size
     Y_test = Y[m_training:]
     
     return X_train, Y_train, X_test, Y_test
+
+
+def rawtofeatures(audio_file, window_len=0.025, window_step=0.02, num_coefs = 13, num_filt=26, frames=50):
+    # Load file
+    samplerate, signl = wav.read(audio_file)
+    
+    # MFCCs
+    mfcc_feat = mfcc(signal=signl, samplerate=samplerate, winlen=window_len, winstep=window_step,
+                     numcep=num_coefs, nfilt=num_filt, nfft=512, lowfreq=0, appendEnergy=True)
+    # Delta coefs
+    d_mfcc_feat = delta(mfcc_feat, 2)
+    # Delta-Delta coefs
+    d2_mfcc_feat = delta(d_mfcc_feat, 2)
+    # save audio features in desired order
+    audio_features = np.concatenate((mfcc_feat[:,1:], d_mfcc_feat[:,1:], d2_mfcc_feat[:,1:],
+                                    mfcc_feat[:,:1], d_mfcc_feat[:,:1], d2_mfcc_feat[:,:1]), axis=1)
+
+    # if the audio length is smaller than 1s -> pad with 0s to get enough frames to stack
+    if len(audio_features) < frames: 
+        audio_features = np.concatenate((file_features, np.zeros(((frame-len(file_features)), 39))), axis=0)
+    return audio_features
