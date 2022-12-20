@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.initializers import glorot_uniform
 
-def KWS_CNN_model(input_shape, dropout=None, norm=None):
+def KWS_CNN_model(input_shape, n_outputs, dropout=None, norm=None):
     """
     Arguments:
     :param input_shape: shape of the data of the dataset
@@ -50,7 +50,7 @@ def KWS_CNN_model(input_shape, dropout=None, norm=None):
     X = tf.keras.layers.Dense(128, activation='relu', name='Dense3')(X)  
     
     # Softmax
-    X = tf.keras.layers.Dense(4, activation='softmax', name='Softmax')(X)
+    X = tf.keras.layers.Dense(n_outputs, activation='softmax', name='Softmax')(X)
     
     # MODEL
     model = Model(inputs = X_input, outputs = X, name='KWS_CNN')
