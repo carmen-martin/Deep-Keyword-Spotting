@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.initializers import glorot_uniform
 
-def KWS_CNN_model(input_shape, n_outputs, dropout=None, norm=None):
+def KWS_CNN_model(input_shape, n_outputs, dropout=0, norm=None):
     """
     Arguments:
     :param input_shape: shape of the data of the dataset
