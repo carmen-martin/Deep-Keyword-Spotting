@@ -1,5 +1,4 @@
-### IDEAS
+### Missing
 
-- Autoencoder CNN+RNN
-- Sin overlap entre frames
+- Metrics: find architectures number of parameters
 - Comparar memoria VS accuracy del baseline, la mejor CNN, y el autoencoder.
