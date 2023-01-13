@@ -16,8 +16,8 @@
 
 **Autoencoder** (+ SVM) - 4 classes (3 keywords + 1) - test acc: 93.06%
 
-- Total params: 6,062,665
-- Trainable params: 6,062,665
+- Total params: 765,943
+- Trainable params: 765,943
 - Non-trainable params: 0
 
 **PCA + SVM** - 257 dim - test acc: 88.89%
