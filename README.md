@@ -14,10 +14,10 @@
 - Trainable params: 608,484
 - Non-trainable params: 0
 
-**Autoencoder** (+ SVM) - 4 classes (3 keywords + 1) - test acc: 93.06%
+**Autoencoder** (+ SVM) - 4 classes (3 keywords + 1) - test acc: 92.36% - code dim: 12
 
-- Total params: 765,943
-- Trainable params: 765,943
+- Total params: 1,531,381
+- Trainable params: 1,531,381
 - Non-trainable params: 0
 
 **PCA + SVM** - 257 dim - test acc: 88.89%
