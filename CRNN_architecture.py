@@ -24,6 +24,9 @@ def KWS_CRNN_model(input_shape, n_outputs, n_recurrents=2, dropout=0, norm=None)
     if norm:
         X = tf.keras.layers.BatchNormalization()(X)
     
+    # Activation
+    X = tf.keras.layers.Activation('relu')(X)
+    
     # Bidirectional Recurrent layers
     # Adjust input shape
     h = tf.shape(X)[1]
