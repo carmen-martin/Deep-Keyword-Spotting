@@ -8,7 +8,7 @@
 - Trainable params: 1,394,216
 - Non-trainable params: 376
 
-**CRNN** - 4 classes (3 keywords + 1) - test acc: 95.99%
+**CRNN** - 4 classes (3 keywords + 1) - test acc: 96.23%
 
 - Total params: 608,484
 - Trainable params: 608,484
