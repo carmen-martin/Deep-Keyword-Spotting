@@ -1,8 +1,8 @@
-## 🚧 THIS REPO IS CURRENTLY UNDER CONSTRUCTION 🚧
+## Small Footprint Keyword Spotting with different ML architectures
 
-### Keyword Spotting with different ML architectures
+This repository contains the implementation in  <tt>Tensorflow 2.11.0</tt> of different models for the KWS task. 
 
-**CNN** - 4 classes (3 keywords + 1) - test acc: 97.72%
+**CNN with dropout(0.2)** - 4 classes (3 keywords + 1) - test acc: 97.72%
 
 - Total params: 1,394,592
 - Trainable params: 1,394,216
