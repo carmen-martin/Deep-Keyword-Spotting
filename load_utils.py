@@ -8,7 +8,7 @@ import scipy.io.wavfile as wav
 
 def load_dataset(directory, categories, train_size=0.85, winlen=0.025, winstep=0.01, numcep=13, nfilt=26):
     '''
-    Loads the dataset from the given directory and divides it in test and training sets. 
+    Loads all the dataset from the given directory and divides it in test and training sets. 
     The label set provides a different label for each category.
     
     :param directory: path to the folder where dataset is stored
@@ -38,6 +38,7 @@ def load_dataset(directory, categories, train_size=0.85, winlen=0.025, winstep=0
     Y = labels[permutation]
 
     # Split in training and test sets
+    print(labels, len(labels), train_size)
     m_training = int(train_size*len(labels))
 
     X_train = X[:,:,:m_training]
@@ -50,7 +51,8 @@ def load_dataset(directory, categories, train_size=0.85, winlen=0.025, winstep=0
 
 def load_dataset_keywords(directory, keywords, categories, frames=99, train_size=0.85, winlen=0.025, winstep=0.01, numcep=13, nfilt=26):
     '''
-    Loads the dataset from the given directory and divides it in test and training sets. 
+    Loads all the dataset from the given directory and divides it in test and training sets.
+    Only the keywords will be set as output categories, and another category "not a keyword" will englobe all other words.
     The label set provides a different label for each category.
     
     :param directory: path to the folder where dataset is stored
