@@ -120,5 +120,5 @@ def rawtofeatures(audio_file, window_len=0.025, window_step=0.02, num_coefs = 13
 
     # if the audio length is smaller than 1s -> pad with 0s to get enough frames to stack
     if len(audio_features) < frames: 
-        audio_features = np.concatenate((file_features, np.zeros(((frame-len(file_features)), 39))), axis=0)
+        audio_features = np.concatenate((audio_features, np.zeros(((frames-len(audio_features)), 39))), axis=0)
     return audio_features
